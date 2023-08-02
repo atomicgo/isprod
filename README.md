@@ -107,7 +107,7 @@ If environment variable 'MODE' is set and its value is one of [prod, production,
 
 
 <a name="Check"></a>
-## func [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L167>)
+## func [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L150>)
 
 ```go
 func Check() bool
@@ -145,7 +145,7 @@ true
 </details>
 
 <a name="Condition"></a>
-## type [Condition](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L81-L90>)
+## type [Condition](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L64-L73>)
 
 Condition is a condition that checks if the environment is production.
 
@@ -163,7 +163,7 @@ type Condition struct {
 ```
 
 <a name="Condition.Check"></a>
-### func \(Condition\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L93>)
+### func \(Condition\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L76>)
 
 ```go
 func (c Condition) Check() bool
@@ -208,7 +208,7 @@ true
 </details>
 
 <a name="Condition.String"></a>
-### func \(Condition\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L124>)
+### func \(Condition\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L107>)
 
 ```go
 func (c Condition) String() string
@@ -217,7 +217,7 @@ func (c Condition) String() string
 
 
 <a name="Conditions"></a>
-## type [Conditions](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L135>)
+## type [Conditions](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L118>)
 
 Conditions is a list of conditions.
 
@@ -225,14 +225,14 @@ Conditions is a list of conditions.
 type Conditions []Condition
 ```
 
-<a name="DefaultConditions"></a>DefaultConditions is a list of conditions that are used by default. It's initialized at package init. Rules: If environment variable 'prod' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'production' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'staging' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'live' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'ci' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'PROD' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'PRODUCTION' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'STAGING' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'LIVE' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'CI' is set and its value is not one of \[false\], consider it as production environment. If environment variable 'env' is set and its value is one of \[prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI\], consider it as production environment. If environment variable 'environment' is set and its value is one of \[prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI\], consider it as production environment. If environment variable 'mode' is set and its value is one of \[prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI\], consider it as production environment. If environment variable 'ENV' is set and its value is one of \[prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI\], consider it as production environment. If environment variable 'ENVIRONMENT' is set and its value is one of \[prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI\], consider it as production environment. If environment variable 'MODE' is set and its value is one of \[prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI\], consider it as production environment.
+<a name="DefaultConditions"></a>DefaultConditions is a list of conditions that are used by default. It's initialized at package init.
 
 ```go
 var DefaultConditions Conditions
 ```
 
 <a name="Conditions.Add"></a>
-### func \(\*Conditions\) [Add](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L138>)
+### func \(\*Conditions\) [Add](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L121>)
 
 ```go
 func (c *Conditions) Add(condition Condition)
@@ -282,7 +282,7 @@ func main() {
 </details>
 
 <a name="Conditions.Check"></a>
-### func \(Conditions\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L143>)
+### func \(Conditions\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L126>)
 
 ```go
 func (c Conditions) Check() bool
@@ -335,7 +335,7 @@ true
 </details>
 
 <a name="Conditions.String"></a>
-### func \(Conditions\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L154>)
+### func \(Conditions\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L137>)
 
 ```go
 func (c Conditions) String() string
