@@ -8,23 +8,6 @@ import (
 
 // DefaultConditions is a list of conditions that are used by default.
 // It's initialized at package init.
-// Rules:
-// If environment variable 'prod' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'production' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'staging' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'live' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'ci' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'PROD' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'PRODUCTION' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'STAGING' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'LIVE' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'CI' is set and its value is not one of [false], consider it as production environment.
-// If environment variable 'env' is set and its value is one of [prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI], consider it as production environment.
-// If environment variable 'environment' is set and its value is one of [prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI], consider it as production environment.
-// If environment variable 'mode' is set and its value is one of [prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI], consider it as production environment.
-// If environment variable 'ENV' is set and its value is one of [prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI], consider it as production environment.
-// If environment variable 'ENVIRONMENT' is set and its value is one of [prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI], consider it as production environment.
-// If environment variable 'MODE' is set and its value is one of [prod, production, staging, live, ci, PROD, PRODUCTION, STAGING, LIVE, CI], consider it as production environment.
 var DefaultConditions Conditions
 
 func init() {
