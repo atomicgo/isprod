@@ -2,7 +2,6 @@ package isprod_test
 
 import (
 	. "atomicgo.dev/isprod"
-	"os"
 	"testing"
 )
 
@@ -13,12 +12,14 @@ func TestConditionCheck(t *testing.T) {
 		ExcludedValues: []string{"excluded"},
 	}
 
-	os.Setenv("TEST_VAR", "value")
+	t.Setenv("TEST_VAR", "value")
+
 	if !cond.Check() {
 		t.Error("Expected true for allowed value, got false")
 	}
 
-	os.Setenv("TEST_VAR", "excluded")
+	t.Setenv("TEST_VAR", "excluded")
+
 	if cond.Check() {
 		t.Error("Expected false for excluded value, got true")
 	}
@@ -29,12 +30,14 @@ func TestConditionCheck(t *testing.T) {
 		AllowAnyValue: false,
 	}
 
-	os.Setenv("TEST_VAR", "allowed")
+	t.Setenv("TEST_VAR", "allowed")
+
 	if !cond.Check() {
 		t.Error("Expected true for allowed value, got false")
 	}
 
-	os.Setenv("TEST_VAR", "other")
+	t.Setenv("TEST_VAR", "other")
+
 	if cond.Check() {
 		t.Error("Expected false for not allowed value, got true")
 	}
@@ -54,20 +57,23 @@ func TestConditionsCheck(t *testing.T) {
 		},
 	}
 
-	os.Setenv("TEST_VAR_1", "value")
-	os.Setenv("TEST_VAR_2", "other")
+	t.Setenv("TEST_VAR_1", "value")
+	t.Setenv("TEST_VAR_2", "other")
+
 	if !conds.Check() {
 		t.Error("Expected true when one condition is satisfied, got false")
 	}
 
-	os.Setenv("TEST_VAR_1", "excluded")
-	os.Setenv("TEST_VAR_2", "other")
+	t.Setenv("TEST_VAR_1", "excluded")
+	t.Setenv("TEST_VAR_2", "other")
+
 	if conds.Check() {
 		t.Error("Expected false when no conditions are satisfied, got true")
 	}
 
-	os.Setenv("TEST_VAR_1", "value")
-	os.Setenv("TEST_VAR_2", "allowed")
+	t.Setenv("TEST_VAR_1", "value")
+	t.Setenv("TEST_VAR_2", "allowed")
+
 	if !conds.Check() {
 		t.Error("Expected true when both conditions are satisfied, got false")
 	}

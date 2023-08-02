@@ -77,6 +77,7 @@ func init() {
 	}
 }
 
+// Condition is a condition that checks if the environment is production.
 type Condition struct {
 	// EnvVarName is the name of the environment variable to check.
 	EnvVarName string
@@ -88,27 +89,30 @@ type Condition struct {
 	ExcludedValues []string
 }
 
+// Check checks if the condition is met.
 func (c Condition) Check() bool {
 	value, exists := os.LookupEnv(c.EnvVarName)
 	if !exists {
 		return false
 	}
+
 	value = strings.ToLower(value)
 
 	if c.AllowAnyValue {
 		if c.ExcludedValues != nil {
 			for _, excludedValue := range c.ExcludedValues {
-				if value == strings.ToLower(excludedValue) {
+				if strings.EqualFold(value, excludedValue) {
 					return false
 				}
 			}
 		}
+
 		return true
 	}
 
 	if c.AllowedValues != nil {
 		for _, allowedValue := range c.AllowedValues {
-			if value == strings.ToLower(allowedValue) {
+			if strings.EqualFold(value, allowedValue) {
 				return true
 			}
 		}
@@ -122,16 +126,20 @@ func (c Condition) String() string {
 		return fmt.Sprintf("If environment variable '%s' is set and its value is not one of [%s], consider it as production environment.",
 			c.EnvVarName, strings.Join(c.ExcludedValues, ", "))
 	}
+
 	return fmt.Sprintf("If environment variable '%s' is set and its value is one of [%s], consider it as production environment.",
 		c.EnvVarName, strings.Join(c.AllowedValues, ", "))
 }
 
+// Conditions is a list of conditions.
 type Conditions []Condition
 
+// Add adds a condition to the list.
 func (c *Conditions) Add(condition Condition) {
 	*c = append(*c, condition)
 }
 
+// Check checks if any of the conditions is true.
 func (c Conditions) Check() bool {
 	for _, condition := range c {
 		if condition.Check() {
@@ -142,11 +150,14 @@ func (c Conditions) Check() bool {
 	return false
 }
 
+// String returns a string representation of the conditions in plain english.
 func (c Conditions) String() string {
-	var conditionStrings []string
+	conditionStrings := make([]string, 0, len(c))
+
 	for _, condition := range c {
 		conditionStrings = append(conditionStrings, condition.String())
 	}
+
 	return strings.Join(conditionStrings, "\n")
 }
 
