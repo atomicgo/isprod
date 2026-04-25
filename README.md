@@ -140,9 +140,10 @@ Check checks if the application is running in production or not. It uses the Def
 package main
 
 import (
-	"atomicgo.dev/isprod"
 	"fmt"
 	"os"
+
+	"atomicgo.dev/isprod"
 )
 
 func main() {
@@ -194,9 +195,10 @@ Check checks if the condition is met.
 package main
 
 import (
-	"atomicgo.dev/isprod"
 	"fmt"
 	"os"
+
+	"atomicgo.dev/isprod"
 )
 
 func main() {
@@ -261,8 +263,9 @@ Add adds a condition to the list.
 package main
 
 import (
-	"atomicgo.dev/isprod"
 	"fmt"
+
+	"atomicgo.dev/isprod"
 )
 
 func main() {
@@ -309,9 +312,10 @@ Check checks if any of the conditions is true.
 package main
 
 import (
-	"atomicgo.dev/isprod"
 	"fmt"
 	"os"
+
+	"atomicgo.dev/isprod"
 )
 
 func main() {
