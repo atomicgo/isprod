@@ -11,7 +11,7 @@ import (
 var DefaultConditions Conditions
 
 func init() {
-	commonProdNames := []string{
+	commonProdNamesBase := []string{
 		"prod",
 		"production",
 		"staging",
@@ -19,18 +19,20 @@ func init() {
 		"ci",
 	}
 
-	commonEnvVariableNames := []string{
+	commonEnvVariableNamesBase := []string{
 		"env",
 		"environment",
 		"mode",
 	}
 
 	// Add UPPERCASE versions of the common names.
-	commonProdNamesUpper := make([]string, len(commonProdNames))
-	for i, name := range commonProdNames {
+	commonProdNamesUpper := make([]string, len(commonProdNamesBase))
+	for i, name := range commonProdNamesBase {
 		commonProdNamesUpper[i] = strings.ToUpper(name)
 	}
 
+	commonProdNames := make([]string, 0, len(commonProdNamesBase)+len(commonProdNamesUpper))
+	commonProdNames = append(commonProdNames, commonProdNamesBase...)
 	commonProdNames = append(commonProdNames, commonProdNamesUpper...)
 
 	for _, name := range commonProdNames {
@@ -43,11 +45,13 @@ func init() {
 	}
 
 	// Add UPPERCASE versions of the common names.
-	commonEnvVariableNamesUpper := make([]string, len(commonEnvVariableNames))
-	for i, name := range commonEnvVariableNames {
+	commonEnvVariableNamesUpper := make([]string, len(commonEnvVariableNamesBase))
+	for i, name := range commonEnvVariableNamesBase {
 		commonEnvVariableNamesUpper[i] = strings.ToUpper(name)
 	}
 
+	commonEnvVariableNames := make([]string, 0, len(commonEnvVariableNamesBase)+len(commonEnvVariableNamesUpper))
+	commonEnvVariableNames = append(commonEnvVariableNames, commonEnvVariableNamesBase...)
 	commonEnvVariableNames = append(commonEnvVariableNames, commonEnvVariableNamesUpper...)
 
 	for _, name := range commonEnvVariableNames {

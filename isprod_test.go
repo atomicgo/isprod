@@ -3,11 +3,11 @@ package isprod_test
 import (
 	"testing"
 
-	. "atomicgo.dev/isprod"
+	"atomicgo.dev/isprod"
 )
 
 func TestConditionCheck(t *testing.T) {
-	cond := Condition{
+	cond := isprod.Condition{
 		EnvVarName:     "TEST_VAR",
 		AllowAnyValue:  true,
 		ExcludedValues: []string{"excluded"},
@@ -25,7 +25,7 @@ func TestConditionCheck(t *testing.T) {
 		t.Error("Expected false for excluded value, got true")
 	}
 
-	cond = Condition{
+	cond = isprod.Condition{
 		EnvVarName:    "TEST_VAR",
 		AllowedValues: []string{"allowed"},
 		AllowAnyValue: false,
@@ -45,7 +45,7 @@ func TestConditionCheck(t *testing.T) {
 }
 
 func TestConditionsCheck(t *testing.T) {
-	conds := Conditions{
+	conds := isprod.Conditions{
 		{
 			EnvVarName:     "TEST_VAR_1",
 			AllowAnyValue:  true,
