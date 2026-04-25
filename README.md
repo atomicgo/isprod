@@ -124,7 +124,7 @@ If environment variable 'MODE' is set and its value is one of [prod, production,
 
 
 <a name="Check"></a>
-## func [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L150>)
+## func [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L154>)
 
 ```go
 func Check() bool
@@ -161,7 +161,7 @@ true
 
 
 <a name="Condition"></a>
-## type [Condition](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L64-L73>)
+## type [Condition](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L68-L77>)
 
 Condition is a condition that checks if the environment is production.
 
@@ -179,7 +179,7 @@ type Condition struct {
 ```
 
 <a name="Condition.Check"></a>
-### func \(Condition\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L76>)
+### func \(Condition\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L80>)
 
 ```go
 func (c Condition) Check() bool
@@ -223,7 +223,7 @@ true
 
 
 <a name="Condition.String"></a>
-### func \(Condition\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L107>)
+### func \(Condition\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L111>)
 
 ```go
 func (c Condition) String() string
@@ -232,7 +232,7 @@ func (c Condition) String() string
 
 
 <a name="Conditions"></a>
-## type [Conditions](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L118>)
+## type [Conditions](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L122>)
 
 Conditions is a list of conditions.
 
@@ -247,7 +247,7 @@ var DefaultConditions Conditions
 ```
 
 <a name="Conditions.Add"></a>
-### func \(\*Conditions\) [Add](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L121>)
+### func \(\*Conditions\) [Add](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L125>)
 
 ```go
 func (c *Conditions) Add(condition Condition)
@@ -296,7 +296,7 @@ func main() {
 
 
 <a name="Conditions.Check"></a>
-### func \(Conditions\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L126>)
+### func \(Conditions\) [Check](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L130>)
 
 ```go
 func (c Conditions) Check() bool
@@ -348,7 +348,7 @@ true
 
 
 <a name="Conditions.String"></a>
-### func \(Conditions\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L137>)
+### func \(Conditions\) [String](<https://github.com/atomicgo/isprod/blob/main/isprod.go#L141>)
 
 ```go
 func (c Conditions) String() string
