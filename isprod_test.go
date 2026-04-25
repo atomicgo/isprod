@@ -1,8 +1,9 @@
 package isprod_test
 
 import (
-	. "atomicgo.dev/isprod"
 	"testing"
+
+	. "atomicgo.dev/isprod"
 )
 
 func TestConditionCheck(t *testing.T) {

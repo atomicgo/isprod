@@ -1,9 +1,10 @@
 package isprod_test
 
 import (
-	"atomicgo.dev/isprod"
 	"fmt"
 	"os"
+
+	"atomicgo.dev/isprod"
 )
 
 func ExampleCheck() {
